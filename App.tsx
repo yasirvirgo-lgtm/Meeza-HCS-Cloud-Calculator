@@ -1,12 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
-import { CloudService, SelectionItem } from './types';
-import { INITIAL_SERVICES } from './constants';
-import { Header } from './components/Header';
-import { Dashboard } from './components/Dashboard';
-import { ServiceSelector } from './components/ServiceSelector';
-import { PricingConfig } from './components/PricingConfig';
-import { getCloudInsights } from './services/geminiService';
+import { CloudService, SelectionItem } from './types.ts';
+import { INITIAL_SERVICES } from './constants.ts';
+import { Header } from './components/Header.tsx';
+import { Dashboard } from './components/Dashboard.tsx';
+import { ServiceSelector } from './components/ServiceSelector.tsx';
+import { PricingConfig } from './components/PricingConfig.tsx';
+import { getCloudInsights } from './services/geminiService.ts';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'calculator' | 'config'>('calculator');
@@ -80,7 +79,7 @@ const App: React.FC = () => {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'huawei_cloud_estimate.csv';
+    a.download = 'meeza_cloud_estimate.csv';
     a.click();
     window.URL.revokeObjectURL(url);
   };
